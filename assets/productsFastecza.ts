@@ -6,14 +6,26 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 25.95,
     "fiyatIndirimli": 20.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " 111",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
   },{
     id: '2',
     "image": "https://cdn11.bigcommerce.com/s-zbz0dr3ysm/products/2093/images/5605/5000167010879-_Nurofen_Cold___Flu_24_Tablets_OT011275__44765.1673022281.386.513.jpg?c=1",
-    "images":["https://cdn11.bigcommerce.com/s-zbz0dr3ysm/products/2093/images/5605/5000167010879-_Nurofen_Cold___Flu_24_Tablets_OT011275__44765.1673022281.386.513.jpg?c=1"],
+    "images":["https://cdn11.bigcommerce.com/s-zbz0dr3ysm/products/2093/images/5605/5000167010879-_Nurofen_Cold___Flu_24_Tablets_OT011275__44765.1673022281.386.513.jpg?c=1","https://media-services.digital-rb.com/s3/live-productcatalogue/sys-master/images/hbf/h20/8817529094174/Nurofen-Core-200mg-FRONT-1500x1500px.jpg"],
     "name": "Nurofen Tablet",
     "miktar": "1 adet",
     "fiyat": 29.95,
     "fiyatIndirimli": 26.50,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
+
+
   },{
     id: '3',
     "image": "https://aptekaprima24.pl/45906-large_default/aspirin-pro-g-tabl.jpg",
@@ -22,15 +34,25 @@ export default [{
     "miktar": "1 adet ",
     "fiyat": 19.55,
     "fiyatIndirimli": 10.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },{
     id: '4',
-    "image": "https://www.probiyotix.com/wp-content/uploads/2023/03/m1.png",
-    "images":["https://www.probiyotix.com/wp-content/uploads/2023/03/m1.png"],
+    "image": "https://pillintrip.com/style/images/medicines/levmont/levmont1.jpg",
+    "images":["https://pillintrip.com/style/images/medicines/levmont/levmont1.jpg"],
     "name": "Majezik",
     "miktar": "1 adet ",
     "fiyat": 21.75,
     "fiyatIndirimli": 13.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },{
     id: '5',
@@ -40,6 +62,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 45.75,
     "fiyatIndirimli": 28.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -50,6 +77,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 50.75,
     "fiyatIndirimli": 36.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -60,6 +92,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 75.75,
     "fiyatIndirimli": 49.45,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -70,6 +107,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 80.90,
     "fiyatIndirimli": 65.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -80,6 +122,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 20.90,
     "fiyatIndirimli": 11.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -90,6 +137,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 95.90,
     "fiyatIndirimli": 65.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -100,6 +152,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 130.90,
     "fiyatIndirimli": 95.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -110,6 +167,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 45.90,
     "fiyatIndirimli": 35.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -120,6 +182,11 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 50.90,
     "fiyatIndirimli": 35.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
+
 
   },
   {
@@ -130,6 +197,10 @@ export default [{
     "miktar": "1 adet",
     "fiyat": 25.90,
     "fiyatIndirimli": 15.35,
+    "icindekiler" : "İçindekiler",
+    "kullanim " : " Kullanim",
+    "yanetkiler" : "Yan Etkiler",
+    "ss" : "Kullanim"
 
   },
   

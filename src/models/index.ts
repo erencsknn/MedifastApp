@@ -3,6 +3,11 @@ export declare class Category {
     readonly name : string;
     readonly src : string;
     readonly subCategories : string[];
+   
+    
+
+
+
 }
 
 export declare class Product {
@@ -13,5 +18,10 @@ export declare class Product {
     readonly miktar: string;
     readonly fiyat: number; 
     readonly fiyatIndirimli?: number;
+    readonly icindekiler : string;
+    readonly yanetkiler : string;
+    readonly ss : string;
     
 }
+
+

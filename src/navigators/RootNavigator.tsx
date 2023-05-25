@@ -2,8 +2,11 @@ import React from 'react'
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs"
 import { Entypo,Feather,FontAwesome ,MaterialCommunityIcons} from '@expo/vector-icons'; 
 import HomeNavigator from './HomeNavigator';
+import ProfileScreen from "../screens/ProfileScreen"
+
 
 const Tab = createBottomTabNavigator()
+
 
 function RootNavigator() {
   return (
@@ -31,7 +34,7 @@ function RootNavigator() {
         />
          <Tab.Screen
           name="Search"
-          component={HomeNavigator}
+          component={ProfileScreen}
           options={{
             tabBarIcon: ({ color }) => (
               <FontAwesome name="search" size={20} color={color} />
@@ -40,7 +43,7 @@ function RootNavigator() {
         />
          <Tab.Screen
           name="User"
-          component={HomeNavigator}
+          component={ProfileScreen}
           options={{
             tabBarIcon: ({ color }) => (
               <FontAwesome name="user" size={20} color={color} />

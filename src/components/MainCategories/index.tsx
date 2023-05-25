@@ -1,27 +1,28 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
-import CategoryItem from "../CategoryItem";
-import { Category } from "../../models";
-import categoriesEczane from "../../../assets/categoriesEczane";
-
-
+import { View,StyleSheet } from "react-native";
+import categoriesGetir from "../../../assets/categoriesEczane";
+import CategoryItemDeneme from "../../components/CategoryItemDeneme"
 function index() {
-  
-  const [categories, setCategories] = useState<Category[]>(categoriesEczane);
+  const [categories, setCategories] = useState(categoriesGetir);
+
   return (
-    <View>
-      <View style = {styles.listConteiner}>
-       
+    <View style={{ backgroundColor: "#F5F5F5" }}>
+              <View style={styles.listContainer}>
+        {categories.map((item)=>(
+            <CategoryItemDeneme key ={item.id} item={item} />
+        ))}
       </View>
     </View>
   );
 }
 const styles = StyleSheet.create({
-  listConteiner: {
+  listContainer: {
     flex: 1,
-    flexDirection : 'row',
-    alignItems : 'flex-start',
-    flexWrap : 'wrap',
+    flexDirection: "row",
+    alignItems: "flex-start",
+    flexWrap: "wrap",
+    //backgroundColor: "white",
+    width: "100%",
   },
 });
 

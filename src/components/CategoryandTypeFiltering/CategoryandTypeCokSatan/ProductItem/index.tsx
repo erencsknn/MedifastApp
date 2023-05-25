@@ -1,6 +1,6 @@
 import React from 'react'
 import {Text,TouchableOpacity,Image,Dimensions} from 'react-native'
-import productsFastecza from '../../../../../assets/productsFastecza'
+
 
 const {width,height} = Dimensions.get('window')
 

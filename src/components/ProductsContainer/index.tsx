@@ -2,17 +2,25 @@ import React from 'react'
 import { View,Text } from 'react-native'
 import ProductItem from '../CategoryandTypeFiltering/CategoryandTypeIlaclar/ProductItem'
 import productsFastecza from '../../../assets/productsFastecza'
+import { useState,useEffect } from 'react'
+import { Category } from '../../models'
 
 function index() {
+
+  
+
   return (
     <View>
-    {/* 2 products */}
+    <View style = {{flexDirection : 'row',alignItems : 'center', backgroundColor : 'white',}}>
+    {/* 1. products */}
     <View style = {{flexDirection : 'row',alignItems : 'center', backgroundColor : 'white',}}>
         {productsFastecza.slice(0,2).map((item) =>(
-            <ProductItem key={item.id} item = {item}/>   
+            <ProductItem key={item.id} item = {item} />   
         ))}
       
     </View>
+    </View>
+    
     <Text style = {{color : 'gray', fontWeight : 'bold',padding : 14}}>
         Ağrı Kesici
         </Text>
@@ -38,7 +46,7 @@ function index() {
     <View>
       {/* Damla products */}
     <Text style = {{color : 'gray', fontWeight : 'bold',padding : 14}}>
-        Ağrı Kesici
+        Damlalar
         </Text>
         <View style = {{flexDirection : 'row',flexWrap : 'wrap',flex : 1, backgroundColor : 'white',paddingVertical : 10,alignItems : 'center'}}>
       {productsFastecza.slice(8,11).map((item) => (
@@ -50,7 +58,7 @@ function index() {
 
     </View>
     <View>
-      {/* Damla products */}
+      {/* Soğukalgınlıgı products */}
     <Text style = {{color : 'gray', fontWeight : 'bold',padding : 14}}>
         Soğuk Algınlığı
         </Text>

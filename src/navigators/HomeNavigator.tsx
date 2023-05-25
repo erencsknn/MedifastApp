@@ -1,20 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
-import { Image, StyleSheet,Text } from "react-native";
-import CategoryFilterScreenFirsatUrün from "../screens/CategoryScreens/CategoryFilterScreenFirsatUrün"
-import CategoryFilterScreenCokSatan from "../screens/CategoryScreens/CategoryFilterScreenCokSatan"
-import CategoryFilterScreenMedikal from "../screens/CategoryScreens/CategoryFilterScreenMedikal"
-import CategoryFilterScreenIlaclar from "../screens/CategoryScreens/CategoryFilterScreenIlaclar"
+import LoginScreen from "../screens/LoginPage";
+import AdminScreen from "../screens/AdminScreen";
+import UserLogIn from "../screens/UserLogIn"
+import AdminPanelScreen from "../screens/AdminPanelScreen"
+import { Dimensions, Image, Text,View } from "react-native";
+import CategoryFilterScreenIlaclar from "../screens/CategoryScreens/CategoryFilterScreenIlaclar";
+import ProductDetailsIlaclarScreen from '../screens/ProductDetailsScreens/ProductDetailsIlaclarScreen'
+import { TouchableOpacity } from "react-native-gesture-handler";
+import { Ionicons } from "@expo/vector-icons";
+import {connect} from "react-redux"
+import { useNavigation,getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import CartScreen from "../screens/CartScreen"
+import { Product } from "../models";
+import * as actions from "../Redux/Actions/cartActions"
+import UserSignUpScreen from "../screens/UserSignUpScreen"
+
+
+
 
 const stack = createStackNavigator();
+const {width,height} = Dimensions.get('window')
 
-function HomeNavigator() {
+
+
+
+function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , quantity : number}[],clearCart : () => void , }) {
+  const navigation = useNavigation()
+  const [totalPrice,setTotalPrice] = useState<number>(0)
+
+ 
+  /*const tabHiddenRoutes = ["ProductDetails","CartScreen"];
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    console.log("Route Name is ", routeName);
+    if (tabHiddenRoutes.includes(routeName)) {
+      console.log("Kapat ", routeName);
+      navigation.setOptions({ tabBarStyle: { display: "none" } });
+    } else {
+      console.log("Aç ", routeName);
+      navigation.setOptions({ tabBarStyle: { display: "true" } });
+    }
+  }, [navigation, route]);*/
+  
+  const getProductsPrice = () => {
+    var total =0;
+    cartItems.forEach(cartItem=>{
+      const price = (total += cartItem.product.fiyatIndirimli)
+      setTotalPrice(price)
+    })
+  }
+  useEffect(()=>{
+    getProductsPrice()
+
+  },[cartItems,navigation])
+
+
+
+  
+
   return (
+    
     <stack.Navigator>
-      <stack.Screen
+       <stack.Screen
         name="Home"
-        component={HomeScreen}
+        component={LoginScreen}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
 
@@ -27,67 +78,172 @@ function HomeNavigator() {
         }}
       />
       <stack.Screen
-        name="CategoryDetailsFirsatUrünleri"
-        component={CategoryFilterScreenFirsatUrün}
+        name="UserHome"
+        component={HomeScreen}
         options={{
-          headerTintColor : 'white',
-          headerBackTitleVisible : false,
-          headerStyle: { backgroundColor: "#3d0c45", height: 100 },
+          headerStyle: { backgroundColor: "#3d0c45", height: 110 },
 
           headerTitle: () => (
-          <Text style = {{fontWeight : 'bold',fontSize : 16,color : 'white'}}>
-            Ürünler
-            </Text>
-          ),
-        }}
-      />
-      <stack.Screen
-        name="CategoryDetailsCokSatan"
-        component={CategoryFilterScreenCokSatan}
-        options={{
-          headerTintColor : 'white',
-          headerBackTitleVisible : false,
-          headerStyle: { backgroundColor: "#3d0c45", height: 100 },
-
-          headerTitle: () => (
-          <Text style = {{fontWeight : 'bold',fontSize : 16,color : 'white'}}>
-            Ürünler
-            </Text>
-          ),
-        }}
-      />
-      <stack.Screen
-        name="CategoryDetailsMedikal"
-        component={CategoryFilterScreenMedikal}
-        options={{
-          headerTintColor : 'white',
-          headerBackTitleVisible : false,
-          headerStyle: { backgroundColor: "#3d0c45", height: 100 },
-
-          headerTitle: () => (
-          <Text style = {{fontWeight : 'bold',fontSize : 16,color : 'white'}}>
-            Ürünler
-            </Text>
+            <Image
+              source={require("../../assets/medifast.png")}
+              style={{ width: 100, height: 90 }}
+            />
           ),
         }}
       />
         <stack.Screen
+        name="AdminScreen"
+        component={AdminScreen}
+        options={{
+          headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+
+          headerTitle: () => (
+            <Image
+              source={require("../../assets/medifast.png")}
+              style={{ width: 100, height: 90 }}
+            />
+          ),
+        }}
+      />
+        <stack.Screen
+        name="AdminPanelScreen"
+        component={AdminPanelScreen}
+        options={{
+          headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+
+          headerTitle: () => (
+            <Image
+              source={require("../../assets/medifast.png")}
+              style={{ width: 100, height: 90 }}
+            />
+          ),
+        }}
+      />
+           <stack.Screen
+        name="UserSignUp"
+        component={UserSignUpScreen}
+        options={{
+          headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+
+          headerTitle: () => (
+            <Image
+              source={require("../../assets/medifast.png")}
+              style={{ width: 100, height: 90 }}
+            />
+          ),
+        }}
+      />
+          <stack.Screen
+        name="UserLogIn"
+        component={UserLogIn}
+        options={{
+          headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+
+          headerTitle: () => (
+            <Image
+              source={require("../../assets/medifast.png")}
+              style={{ width: 100, height: 90 }}
+            />
+          ),
+        }}
+      />
+     
+      <stack.Screen
         name="CategoryDetailsIlaclar"
         component={CategoryFilterScreenIlaclar}
         options={{
-          headerTintColor : 'white',
-          headerBackTitleVisible : false,
+          headerTintColor: "white",
+          headerBackTitleVisible: false,
           headerStyle: { backgroundColor: "#3d0c45", height: 100 },
 
           headerTitle: () => (
-          <Text style = {{fontWeight : 'bold',fontSize : 16,color : 'white'}}>
-            Ürünler
+            <Text style={{ fontWeight: "bold", fontSize: 16, color: "white" }}>
+              Ürünler
+            </Text>
+          ),
+          headerRight : () =>(
+           <TouchableOpacity onPress={() => navigation.navigate("CartScreen")} style = {{width : width*0.2,height : 33,backgroundColor:'white',marginRight:width*0.03,borderRadius:9,flexDirection :'row',alignItems : 'center'}}>
+            <Image style = {{width : 23,height : 23, marginLeft : 6}} source={require("../../assets/cart.png")}/>
+            <View style = {{flex : 1,justifyContent:'center',alignItems:'center', height : 33, borderBottomRightRadius: 9 ,backgroundColor : '#F3EFFE',borderTopRightRadius:9}}>
+            <Text style = {{color : "#3d0c45", fontWeight : 'bold',fontSize :12 }}>
+              <Text>{"\u20BA"}</Text> 
+              {totalPrice.toFixed(2)}
+            </Text>
+
+            </View>
+            
+           </TouchableOpacity>
+          )
+        }}
+      />
+      <stack.Screen
+        name="ProductDetails"
+        component={ProductDetailsIlaclarScreen}
+        options={{
+          headerTintColor: "white",
+          headerBackTitleVisible: false,
+          headerStyle: { backgroundColor: "#3d0c45", height: 100 },
+          headerLeft : () => (
+            <TouchableOpacity onPress={() => navigation.goBack()}>
+              <Ionicons name="close" size={24} color="white" />
+            </TouchableOpacity>
+          ),
+
+          headerTitle: () => (
+            <Text style={{ fontWeight: "bold", fontSize: 16, color: "white" }}>
+              Ürün Detayı
             </Text>
           ),
         }}
       />
+      <stack.Screen
+      name="CartScreen"
+      component={CartScreen}
+      options={{
+        headerTintColor:'white',
+        headerStyle : {backgroundColor: '#3d0c45' },
+        headerBackTitleVisible : false,
+        headerTitle : () =>(
+          <Text style = {{fontWeight : 'bold', fontSize : 15, color : 'white'}}>
+          Sepetim
+          </Text>
+        ),
+        headerLeft : () => (
+          <TouchableOpacity style = {{paddingLeft : 10}} onPress={() => navigation.goBack()}>
+            <Ionicons name="close" size={26} color="white" />
+
+          </TouchableOpacity>
+        ),
+        headerRight : () => (
+          <TouchableOpacity onPress={() => clearCart()} style = {{paddingRight : 10}}>
+            <Ionicons name="trash" size={24} color="white" />
+          </TouchableOpacity>
+        )
+
+      }}
+      />
+     
+
+      
+     
     </stack.Navigator>
   );
 }
 
-export default HomeNavigator;
+
+const mapStateToProps = (state) =>{
+  const {cartItems} = state
+  return {
+    cartItems : cartItems
+  }
+}
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    clearCart : () => dispatch(actions.clearCart()) 
+  }
+}
+
+ export default connect(mapStateToProps,mapDispatchToProps)(HomeNavigator)
+
+
+

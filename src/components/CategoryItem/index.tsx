@@ -1,14 +1,18 @@
 import React from 'react'
 import { TouchableOpacity,Image,Text, View,Dimensions } from 'react-native'
-import { Category } from '../../models';
 import { useNavigation } from "@react-navigation/native";
 
 
 const {width,height} = Dimensions.get('window');
 
 
+
+
 function index() {
   const navigation = useNavigation()
+  const firsatUrünleriFunc = () =>{
+    navigation.navigate("CategoryDetailsFirsatUrünleri")
+   } 
 
 
 
@@ -16,7 +20,7 @@ function index() {
     <View style = {{flexDirection : 'column'}}>
       <View style = {{flexDirection : 'row'}}>
    <TouchableOpacity 
-    onPress={() => navigation.navigate("CategoryDetailsFirsatUrünleri" ) } style = {{width : width*0.20, height: height*0.13,flexDirection:'column',alignItems:'center',justifyContent:'space-between',marginTop:20}}>
+    onPress={firsatUrünleriFunc} style = {{width : width*0.20, height: height*0.13,flexDirection:'column',alignItems:'center',justifyContent:'space-between',marginTop:20}}>
     <Image style={{width:width*0.15,height:height*0.10,borderRadius:8}} source={{uri : "https://www.celebikozmetik.com/wp-content/uploads/2022/05/buyukfirsaturunu2.png "}} />
     <Text style = {{fontSize : 9,color :'#616161',fontWeight:'500',marginTop:2}}> Fırsat Ürünleri</Text>
     

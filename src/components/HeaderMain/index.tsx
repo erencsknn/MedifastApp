@@ -2,7 +2,11 @@ import { View, Text, Image } from "react-native";
 import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
 
+
 function index() {
+  
+
+ 
   return (
     <View style={styles.headerMain}>
       <View style = {styles.headerOne}>
