@@ -12,6 +12,8 @@ import { initializeApp } from "firebase/app"
 
 
 
+
+
 const firebaseConfig = {
   apiKey: "AIzaSyAo8igkInk-mRdzAwmMKtzyWOdfpFAXr1A",
   authDomain: "medifast-d2c80.firebaseapp.com",
@@ -22,6 +24,13 @@ const firebaseConfig = {
   measurementId: "G-NDRM7ZGXYZ"
 };
 firebase.initializeApp(firebaseConfig)
+
+
+
+
+
+
+
 
 
 

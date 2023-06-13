@@ -12,10 +12,25 @@ import { ScrollView } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 import ProductItem from "../../components/CategoryandTypeFiltering/CategoryandTypeIlaclar/ProductItem"
 import cartItems from "../../Redux/Reducers/cartItem";
+import * as actions from "../../Redux/Actions/cartActions"
 import { Product } from "../../models";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
-function index({cartItems} : {cartItems : {product : Product,quantity : number}[]}) {
+type productItemType = {
+  item : Product;
+  addItemToCart : (a:Product) => void;
+  addToOrder : (a:Product) => void
+}
+function index({cartItems, addToOrder,item,clearCart} : {cartItems : {product : Product,quantity : number}[],addToOrder : Product, item:Product,clearCart: () => void }) {
+  const navigation = useNavigation()
+  const orderPress = () => {
+    alert("Siparişiniz alındı.")
+    navigation.navigate("UserHome");
+    setTotalPrice(0);
+    
+  }
+
   const [totalPrice,setTotalPrice] = useState<number>(0)
    const getProductsPrice = () => {
     let total = 0;
@@ -70,6 +85,8 @@ function index({cartItems} : {cartItems : {product : Product,quantity : number}[
             borderTopLeftRadius: 8,
             borderBottomLeftRadius: 8,
           }}
+        onPress={()=>{addToOrder(item);orderPress() }}
+
         >
           <Text style={{ color: "white", fontSize: 15, fontWeight: "bold" }}>
             Devam
@@ -103,5 +120,14 @@ const mapStateToProps = (state) =>{
     cartItems : cartItems
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return{
+    addToOrder : (product : Product) =>
+    actions.addToOrder({quantity : 1 , product}),
+    clearCart : () => dispatch(actions.clearCart()) 
+  }
+}
 
-export default connect(mapStateToProps,null)(index)
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(index)

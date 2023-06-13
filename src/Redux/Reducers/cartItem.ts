@@ -1,4 +1,4 @@
-import { ADD_TO_CART,REMOVE_FROM_CART,CLEAR_CART } from "./canstants";
+import { ADD_TO_CART,REMOVE_FROM_CART,CLEAR_CART, ADD_TO_ORDER } from "./canstants";
 
 
 const cartItems = (state = [],action) =>{
@@ -12,6 +12,9 @@ const cartItems = (state = [],action) =>{
 
         case CLEAR_CART :
             return state = []
+        
+        case ADD_TO_ORDER : 
+            return [...state,action.payload]
      }
      return state;
 }

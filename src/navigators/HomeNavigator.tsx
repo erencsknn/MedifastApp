@@ -20,29 +20,29 @@ import UserSignUpScreen from "../screens/UserSignUpScreen"
 
 
 
+
 const stack = createStackNavigator();
 const {width,height} = Dimensions.get('window')
 
 
 
 
-function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , quantity : number}[],clearCart : () => void , }) {
+function HomeNavigator({cartItems,clearCart,route} : {cartItems : {product:Product , quantity : number}[],clearCart : () => void , }) {
   const navigation = useNavigation()
   const [totalPrice,setTotalPrice] = useState<number>(0)
 
- 
-  /*const tabHiddenRoutes = ["ProductDetails","CartScreen"];
-  React.useLayoutEffect(() => {
+  const tabHiddenRoutes = ["Home","UserLogIn","AdminScreen","AdminPanelScreen","UserSignUp","CartScreen","ProductDetails"];
+  
+
+  useEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    console.log("Route Name is ", routeName);
     if (tabHiddenRoutes.includes(routeName)) {
-      console.log("Kapat ", routeName);
       navigation.setOptions({ tabBarStyle: { display: "none" } });
     } else {
-      console.log("Aç ", routeName);
-      navigation.setOptions({ tabBarStyle: { display: "true" } });
+      navigation.setOptions({ tabBarStyle: { display: "flex" } });
     }
-  }, [navigation, route]);*/
+  }, [navigation, route]);
+  
   
   const getProductsPrice = () => {
     var total =0;
@@ -50,6 +50,7 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
       const price = (total += cartItem.product.fiyatIndirimli)
       setTotalPrice(price)
     })
+    cartItems.length ? null : setTotalPrice(0)
   }
   useEffect(()=>{
     getProductsPrice()
@@ -62,12 +63,18 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
 
   return (
     
-    <stack.Navigator>
+    <stack.Navigator
+    
+  
+    >
        <stack.Screen
         name="Home"
         component={LoginScreen}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+        
+          
+          
 
           headerTitle: () => (
             <Image
@@ -82,6 +89,7 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
         component={HomeScreen}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+          
 
           headerTitle: () => (
             <Image
@@ -94,9 +102,12 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
         <stack.Screen
         name="AdminScreen"
         component={AdminScreen}
-        options={{
+        options=
+        {{
+          
+          
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
-
+          
           headerTitle: () => (
             <Image
               source={require("../../assets/medifast.png")}
@@ -110,6 +121,8 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
         component={AdminPanelScreen}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+         
+          
 
           headerTitle: () => (
             <Image
@@ -117,14 +130,16 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
               style={{ width: 100, height: 90 }}
             />
           ),
-        }}
+        }
+      
+      }
       />
            <stack.Screen
         name="UserSignUp"
         component={UserSignUpScreen}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
-
+          
           headerTitle: () => (
             <Image
               source={require("../../assets/medifast.png")}
@@ -138,6 +153,7 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
         component={UserLogIn}
         options={{
           headerStyle: { backgroundColor: "#3d0c45", height: 110 },
+          
 
           headerTitle: () => (
             <Image
@@ -180,6 +196,7 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
         name="ProductDetails"
         component={ProductDetailsIlaclarScreen}
         options={{
+          tabBarStyle : {display : "none"},
           headerTintColor: "white",
           headerBackTitleVisible: false,
           headerStyle: { backgroundColor: "#3d0c45", height: 100 },
@@ -200,6 +217,7 @@ function HomeNavigator({cartItems,clearCart} : {cartItems : {product:Product , q
       name="CartScreen"
       component={CartScreen}
       options={{
+        tabBarStyle : {display : "none"},
         headerTintColor:'white',
         headerStyle : {backgroundColor: '#3d0c45' },
         headerBackTitleVisible : false,
@@ -243,7 +261,7 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
- export default connect(mapStateToProps,mapDispatchToProps)(HomeNavigator)
+ export default  connect(mapStateToProps,mapDispatchToProps)(HomeNavigator)
 
 
 

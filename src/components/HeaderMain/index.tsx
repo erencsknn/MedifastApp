@@ -1,11 +1,12 @@
 import { View, Text, Image } from "react-native";
 import styles from "./styles";
 import { Entypo } from "@expo/vector-icons";
+import { useEffect, useState } from "react";
+import firebase from "firebase/compat";
 
 
 function index() {
   
-
  
   return (
     <View style={styles.headerMain}>
@@ -13,7 +14,7 @@ function index() {
         <Image style={styles.image} source= {{uri:'https://cdn.getir.com/misc/emoji/house.png'}} />
         <View style = {styles.headerOneView}>
         <Text style = {{fontSize:16, fontWeight : '600', marginLeft : 10}}>Ev</Text>
-        <Text style = {{fontSize:11, fontWeight : '500', marginLeft : 7, marginRight : 4}} >Karaman Mahallesi 2.Dilek Sokak... </Text>
+        <Text style = {{fontSize:11, fontWeight : '500', marginLeft : 7, marginRight : 4}} >Karaman Mah. 2.Dilek Sok. </Text>
         <Entypo name="chevron-thin-right" size={10} color="#752311" />
         
             

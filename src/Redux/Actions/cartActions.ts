@@ -1,9 +1,15 @@
-import { ADD_TO_CART,REMOVE_FROM_CART,CLEAR_CART } from "../Reducers/canstants";
+import { ADD_TO_CART,REMOVE_FROM_CART,CLEAR_CART, ADD_TO_ORDER } from "../Reducers/canstants";
 
 
 export const addToCart = (payload) => {
     return {
         type : ADD_TO_CART,
+        payload
+    }
+}
+export const addToOrder = (payload) => {
+    return {
+        type : ADD_TO_ORDER,
         payload
     }
 }

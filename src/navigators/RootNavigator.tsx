@@ -23,10 +23,12 @@ function RootNavigator() {
         }
     }}
     >
+      
         <Tab.Screen
           name="AnaSayfa"
           component={HomeNavigator}
           options={{
+            
             tabBarIcon: ({ color }) => (
               <Entypo name="home" size={20} color={color} />
             ),
